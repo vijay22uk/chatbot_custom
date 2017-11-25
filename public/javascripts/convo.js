@@ -5,7 +5,7 @@ var socket = io.connect();
 socket.on('fromServer', function (data) { // recieveing a reply from server.
   if (data.loginRequest) {
     botui.action.button({
-      delay: 4000,
+      delay: 500,
       loading: true,
       autoHide: false,
       addMessage: false,
@@ -24,7 +24,7 @@ socket.on('fromServer', function (data) { // recieveing a reply from server.
     botui.message.add({
       cssClass: 'open-reports',
       content: data.server,
-      delay: 3000,
+      delay: 2000,
       loading: true
     }).then(again);
   }
@@ -59,7 +59,7 @@ function again() {
 
 botui.message.add({
   content: 'Lets Start Talking...',
-  delay: 1500,
+  delay: 500,
 }).then(function () {
   botui.action.text({
     action: {
