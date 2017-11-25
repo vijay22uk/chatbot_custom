@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    <%=title%>
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui-theme-default.css" />
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css" />
+  <%# Custom StyleSheet for Black Color (Totally Optional)%>
+    <link rel="stylesheet" href="stylesheets/black.css" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h3 id="user">
+      <% if (!user) { %>
+        <p>Welcome! Guest.</p>
+        <% } else { %>
+          <p>Hello,
+            <%= user.username %>.
+              <a href="/logout">Logout</a>.</p>
+          <script>
+            var isLogedIn = '<%= user.username  %>' ;
+            console.log(isLogedIn);  
+          </script>
+          <% } %>
+    </h3>
+  </div>
+  <%# Bot Declaration%>
+    <div class="botui-app-container" id="api-bot">
+      <bot-ui></bot-ui>
+    </div>
+    <div class="microphone-overlay">
+        <img src="img/micon.png"  alt="Mic">
+    </div>
+<!-- Modal -->
+<div class="modal fade" id="infoModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Reports</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <label>Hi, below is your report:</label>
+                </p>
+                <dl>
+                    <dt>
+                      Sale of products
+                    </dt>
+                    <dd class="percentage percentage-11"><span class="text">Aticle: 11.33%</span></dd>
+                    <dd class="percentage percentage-49"><span class="text">Product Abc: 49.77%</span></dd>
+                    <dd class="percentage percentage-16"><span class="text">Product 123: 16.09%</span></dd>
+                    <dd class="percentage percentage-5"><span class="text">Item one: 5.41%</span></dd>
+                    <dd class="percentage percentage-2"><span class="text">Item two: 1.62%</span></dd>
+                    <dd class="percentage percentage-2"><span class="text">Item one three: 2%</span></dd>
+                  </dl>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <%# JS STUFF%>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+      <script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/botui/build/botui.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="/javascripts/bootstrap.min.js"></script>
+      <%# Edit the Conversation from Convo.js%>
+        <script src="javascripts/main.js"></script>
+        <script src="javascripts/convo.js"></script>
+        <script src="javascripts/socket.js"></script>
+</body>
+
+</html>
