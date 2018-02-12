@@ -17,7 +17,6 @@ var fromClient = function () {
         }else{
           socket.emit('fromServer', { server: res.speech, action: res.action });
         }
-        
       });
     });
   });
