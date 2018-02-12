@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   console.log(res.value);
 });
 router.get('/ms', function(req, res, next) {
-  res.render('index', { title: 'Welcome' ,user: req.user});
+  res.render('indexms', { title: 'Welcome' ,user: req.user});
   console.log(res.value);
 });
 
